@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\DashboardDataPenugasan;
+use App\Http\Controllers\DalamKotaController;
+use App\Http\Controllers\DetailDalamKotaController;
+use App\Http\Controllers\DinasHarianController;
+use App\Http\Controllers\DetailDinasHarianController;
 use App\Http\Controllers\PenilaianController;
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +42,9 @@ Route::get('/dashboard', function(){
     })->middleware('auth');
 
 Route::resource('/dashboard/data_penugasan', DashboardDataPenugasan::class)->middleware('auth');
+Route::resource('/dashboard/dalam_kota', DalamKotaController::class)->middleware('auth');
+Route::resource('/dashboard/detail_dalamkota', DetailDalamKotaController::class)->middleware('auth');
+Route::resource('/dashboard/dinas_harian', DinasHarianController::class)->middleware('auth');
+Route::resource('/dashboard/detail_dinasharian', DetailDinasHarianController::class)->middleware('auth');
 Route::resource('/dashboard/penilaian', PenilaianController::class)->middleware('auth');
 
