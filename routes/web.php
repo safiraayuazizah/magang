@@ -8,6 +8,10 @@ use App\Http\Controllers\DalamKotaController;
 use App\Http\Controllers\DetailDalamKotaController;
 use App\Http\Controllers\DinasHarianController;
 use App\Http\Controllers\DetailDinasHarianController;
+use App\Http\Controllers\LuarKotaController;
+use App\Http\Controllers\DetailLuarKotaController;
+use App\Http\Controllers\LuarNegeriController;
+use App\Http\Controllers\DetailLuarNegeriController;
 use App\Http\Controllers\PenilaianController;
 /*
 |--------------------------------------------------------------------------
@@ -46,5 +50,9 @@ Route::resource('/dashboard/dalam_kota', DalamKotaController::class)->middleware
 Route::resource('/dashboard/detail_dalamkota', DetailDalamKotaController::class)->middleware('auth');
 Route::resource('/dashboard/dinas_harian', DinasHarianController::class)->middleware('auth');
 Route::resource('/dashboard/detail_dinasharian', DetailDinasHarianController::class)->middleware('auth');
+Route::resource('/dashboard/luar_kota', LuarKotaController::class)->middleware('auth');
+Route::resource('/dashboard/detail_luarkota', DetailLuarKotaController::class)->middleware('auth');
+Route::resource('/dashboard/luar_negeri', LuarNegeriController::class)->middleware('auth');
+Route::resource('/dashboard/detail_luarnegeri', DetailLuarNegeriController::class)->middleware('auth');
 Route::resource('/dashboard/penilaian', PenilaianController::class)->middleware('auth');
 

@@ -31,7 +31,7 @@
       <div class="card-body">
         <h5 class="card-title">Luar Kota</h5>
         <p class="card-text">Anda bisa menambahkan data penugasan luar kota dengan kategori tim pendahulu dan tim utama.</p>
-        <a href="#" class="btn btn-primary">Klik Disini</a>
+        <a href="/dashboard/luar_kota" class="btn btn-primary">Klik Disini</a>
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
       <div class="card-body">
         <h5 class="card-title">Luar Negeri</h5>
         <p class="card-text">Anda bisa menambahkan data penugasan luar negeri dengan kategori tim pendahulu dan tim utama.</p>
-        <a href="#" class="btn btn-primary">Klik Disini</a>
+        <a href="/dashboard/luar_negeri" class="btn btn-primary">Klik Disini</a>
       </div>
     </div>
   </div>

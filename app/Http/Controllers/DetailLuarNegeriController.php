@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
-class DetailDalamKotaController extends Controller
+class DetailLuarNegeriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class DetailDalamKotaController extends Controller
      */
     public function index()
     {
-        
-        return view('dashboard.detail_dalamkota.index');
-
+        return view('dashboard.detail_luarnegeri.index');
     }
 
     /**
@@ -37,7 +34,7 @@ class DetailDalamKotaController extends Controller
      */
     public function store(Request $request)
     {
-       //
+        //
     }
 
     /**

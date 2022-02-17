@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\DetailDalamKota;
+use App\Models\DetailLuarKota;
 
-class DalamKotaController extends Controller
+class LuarKotaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class DalamKotaController extends Controller
      */
     public function index()
     {
-        $tampil = DetailDalamKota::get();
-        return view('dashboard.dalam_kota.index',compact('tampil'));
-        
+        $tampil = DetailLuarKota::get();
+        return view('dashboard.luar_kota.index',compact('tampil'));
     }
 
     /**
@@ -38,7 +37,7 @@ class DalamKotaController extends Controller
      */
     public function store(Request $request)
     {
-        $kirim = new DetailDalamKota;
+        $kirim = new DetailLuarKota;
         $kirim->kategori_acara = $request->kategori_acara;
         $kirim->nama = $request->nama;
         $kirim->jml_dinas = $request->jml_dinas;
@@ -47,8 +46,16 @@ class DalamKotaController extends Controller
         $kirim->admin = $request->admin;
         $kirim->titik_acara = $request->titik_acara;
         $kirim->kesulitan = $request->kesulitan;
+        if ($kirim->personil_wanita!=''&& $kirim->outsourching!='') {
+            $kirim->personil_wanita = $request->personil_wanita;
+            $kirim->outsourching = $request->outsourching;
+        }else{
+            $kirim->personil_wanita = '' ;
+            $kirim->outsourching = '';
+        }
+       
         $kirim->save();
-        return redirect ('/dashboard/dalam_kota');
+        return redirect ('/dashboard/luar_kota');
     }
 
     /**
@@ -70,9 +77,9 @@ class DalamKotaController extends Controller
      */
     public function edit($id)
     {
-        $data = DetailDalamKota::find($id);
+        $data = DetailLuarKota::find($id);
        
-        return view('dashboard.detail_dalamkota.edit',['data'=> $data]);
+        return view('dashboard.detail_luarkota.edit',['data'=> $data]);
     }
 
     /**
@@ -84,7 +91,7 @@ class DalamKotaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = DetailDalamKota::find($id);
+        $data = DetailLuarKota::find($id);
         $data->kategori_acara = $request->kategori_acara;
         $data->nama = $request->nama;
         $data->jml_dinas = $request->jml_dinas;
@@ -93,8 +100,15 @@ class DalamKotaController extends Controller
         $data->admin = $request->admin;
         $data->titik_acara = $request->titik_acara;
         $data->kesulitan = $request->kesulitan;
+        if ($data->personil_wanita!=''&& $data->outsourching!='') {
+            $data->personil_wanita = $request->personil_wanita;
+            $data->outsourching = $request->outsourching;
+        }else{
+            $data->personil_wanita = '' ;
+            $data->outsourching = '';
+        }
         $data->save();
-        return redirect ('/dashboard/dalam_kota');
+        return redirect ('/dashboard/luar_kota');
     }
 
     /**
@@ -105,7 +119,7 @@ class DalamKotaController extends Controller
      */
     public function destroy($id)
     {
-        $delete=DetailDalamKota::find($id)->delete();
-        return redirect('/dashboard/dalam_kota');
+        $delete=DetailLuarKota::find($id)->delete();
+        return redirect('/dashboard/luar_kota');
     }
 }

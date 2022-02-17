@@ -3,7 +3,7 @@
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 
-        <h1 class="h2">Data Penugasan Dalam Kota</h1>
+        <h1 class="h2">Data Penugasan Dinas Harian</h1>
         
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
@@ -19,39 +19,31 @@
 
     
         <h2>Tambah Data</h1>
-        <div class="form-floating">
-  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-    <option selected> </option>
-    <option value="1">Dalam Kota Acara Resmi</option>
-    <option value="2">Dalam Kota Acara Tidak Resmi</option>
-    
-  </select>
-  <label for="floatingSelect">Pilih Kategori Acara</label>
-</div>
+        
 
 
-        <form action="#" method="POST">
+        <form action="/dashboard/dinas_harian" method="post">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="name" name="name" class="form-control" id="name">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Yang Akan Dinas" id="nama">
             </div>
             <div class="mb-3">
-                <label for="name" class="form-label">Jumlah Dinas</label>
-                <input type="name" name="name" class="form-control" id="name">
+                <label for="text" class="form-label">Jumlah Dinas</label>
+                <input type="text" name="jml_dinas" class="form-control" placeholder="Masukkan Jumlah Yang Dinas" id="jml_dinas">
             </div>
             <div class="mb-3">
-                <label for="name" class="form-label">Jumlah Yang Dinas</label>
-                <input type="name" name="name" class="form-control" id="name">
+                <label for="text" class="form-label">Jumlah Yang Dinas</label>
+                <input type="text" name="jml_yangdinas" class="form-control" placeholder="Masukkan Jumlah Yang Akan Dinas" id="jml_yangdinas">
             </div>
             <div class="mb-3">
-                <label for="name" class="form-label">Nilai Dinas</label>
-                <input type="name" name="name" class="form-control" id="name">
+                <label for="text" class="form-label">Nilai Dinas</label>
+                <input type="text" name="nilai" class="form-control" placeholder="Masukkan Nilai Dinas" id="nilai">
             </div>
             
 
-<a class="btn btn-outline-primary" href="/dashboard/dinas_harian" role="button">Simpan</a>
-<a class="btn btn-outline-danger" href="/dashboard/detail_dinasharian" role="button">Cancel</a>
+            <button class="btn btn-outline-primary" type="submit" role="button">Simpan</button>
+            <a class="btn btn-outline-danger" href="/dashboard/dalam_kota" role="button">Batal</a>
         </form>
     </div>
 
