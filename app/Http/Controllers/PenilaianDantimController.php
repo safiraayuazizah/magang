@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\penilaian_dantim;
 use Illuminate\Http\Request;
 
+
 class PenilaianDantimController extends Controller
 {
     /**
@@ -14,6 +15,8 @@ class PenilaianDantimController extends Controller
      */
     public function index()
     {
+        return view('poinpenilaiandantim');
+
         //
     }
 
@@ -24,6 +27,7 @@ class PenilaianDantimController extends Controller
      */
     public function create()
     {
+        return view('/');
         //
     }
 
@@ -35,7 +39,25 @@ class PenilaianDantimController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kirim = new penilaian_dantim;
+        $kirim->nama_dantim = $request->nama_dantim;
+        $kirim->etika = $request->etika;
+        $kirim->disiplin = $request->disiplin;
+        $kirim->tanggung_jawab = $request->tanggung_jawab;
+        $kirim->perencanaan = $request->perencanaan;
+        $kirim->teamwork = $request->teamwork;
+        $kirim->kepemimpinan = $request->kepemimpinan;
+        $kirim->problem_solve = $request->problem_solve;
+        $kirim->inovasi = $request->inovasi;
+        $kirim->analisa_pemikiran = $request->analisa_pemikiran;
+
+        $kirim->kejujuran = $request->kejujuran;
+
+
+
+
+        $kirim->save();
+        return redirect ('/penilaian');
     }
 
     /**

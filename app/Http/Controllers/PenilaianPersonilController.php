@@ -14,7 +14,9 @@ class PenilaianPersonilController extends Controller
      */
     public function index()
     {
-        //
+
+    return view('poinpenilaian');
+
     }
 
     /**
@@ -24,7 +26,7 @@ class PenilaianPersonilController extends Controller
      */
     public function create()
     {
-        //
+        return view('/');
     }
 
     /**
@@ -35,7 +37,23 @@ class PenilaianPersonilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kirim = new penilaian_personil;
+        $kirim->nama_personil = $request->nama_personil;
+        $kirim->etika = $request->etika;
+        $kirim->disiplin = $request->disiplin;
+        $kirim->tanggung_jawab = $request->tanggung_jawab;
+        $kirim->teamwork = $request->teamwork;
+        $kirim->problem_solve = $request->problem_solve;
+        $kirim->kepatuhan = $request->kepatuhan;
+        $kirim->kejujuran = $request->kejujuran;
+        $kirim->inisiatif = $request->inisiatif;
+        $kirim->komunikasi = $request->komunikasi;
+
+
+
+
+        $kirim->save();
+        return redirect ('/penilaian');
     }
 
     /**

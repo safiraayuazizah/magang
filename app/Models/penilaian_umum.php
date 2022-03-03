@@ -17,15 +17,7 @@ class penilaian_umum extends Model
         'tempat',
         'nama_penilai',
         'jabatan',
-        'Etika',
-        'Disiplin',
-        'Tanggung_jawab',
-        'kerjasama',
-        'pemecahan_masalah',
-        'kepatuhan',
-        'kejujuran',
-        'inisiatif',
-        'komunikasi',
+        
 
         
     ];

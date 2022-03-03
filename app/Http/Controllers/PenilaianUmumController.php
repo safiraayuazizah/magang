@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\penilaian_umum;
+use App\Models\penilaian_personil;
+use App\Models\penilaian_dantim;
 
 class PenilaianUmumController extends Controller
 {
@@ -14,7 +16,7 @@ class PenilaianUmumController extends Controller
      */
     public function index()
     {
-        return view ('penilaian');
+        return view ('poinpenilaian');
     }
 
     /**
@@ -35,10 +37,15 @@ class PenilaianUmumController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->except(['_token']);
-        
-        penilaian_umum::insert($data);
-        return redirect('penilaian');
+        $kirim = new penilaian_umum;
+        $kirim->judul_acara = $request->judul_acara;
+        $kirim->tanggal = $request->tanggal;
+        $kirim->waktu = $request->waktu;
+        $kirim->tempat = $request->tempat;
+        $kirim->nama_penilai = $request->nama_penilai;
+        $kirim->jabatan = $request->jabatan;
+        $kirim->save();
+        return redirect ('/poinpenilaian');
     }
 
     /**
@@ -49,6 +56,8 @@ class PenilaianUmumController extends Controller
      */
     public function show(penilaian_umum $penilaian_umum)
     {
+        $users = DB::table('penilaian_umums')->select('penilaian_umums as id_pu')->get();
+
         //
     }
 
